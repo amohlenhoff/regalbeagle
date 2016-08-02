@@ -6,28 +6,23 @@ Created on Wed Jul 13 17:04:09 2016
 """
 
 import random
-import winsound
+import subprocess
 import time
 import os
 
-projectRoot = os.path.dirname(__file__)
+projectRoot = os.path.dirname(os.path.abspath(__file__))
 def PlayStall(stallNum):
     if stallNum == 1:
-        #winsound.PlaySound('C:/Users/Developer/Desktop/SortingHat/stalling/ahright.wav', winsound.SND_FILENAME)
-        winsound.PlaySound(projectRoot + '/stalling/ahright.wav', winsound.SND_FILENAME)
+        subprocess.call(['afplay', projectRoot + '/stalling/ahright.wav'])
     elif stallNum == 2:
-        winsound.PlaySound(projectRoot + '/stalling/difficult.wav', winsound.SND_FILENAME)
-       # winsound.PlaySound('C:/Users/Developer/Desktop/SortingHat/stalling/difficult.wav', winsound.SND_FILENAME)
+        subprocess.call(['afplay', projectRoot + '/stalling/difficult.wav'])
     elif stallNum == 3:
-        winsound.PlaySound(projectRoot + '/stalling/itsallhere.wav', winsound.SND_FILENAME)
-        #winsound.PlaySound('C:/Users/Developer/Desktop/SortingHat/stalling/itsallhere.wav', winsound.SND_FILENAME)
+        subprocess.call(['afplay', projectRoot + '/stalling/itsallhere.wav'])
     elif stallNum == 4:
-        winsound.PlaySound(projectRoot + '/stalling/rightok.wav', winsound.SND_FILENAME)
-        #winsound.PlaySound('C:/Users/Developer/Desktop/SortingHat/stalling/rightok.wav', winsound.SND_FILENAME)
+        subprocess.call(['afplay', projectRoot + '/stalling/rightok.wav'])
     else:
-        winsound.PlaySound(projectRoot + '/stalling/wheretoputyou.wav', winsound.SND_FILENAME)
-        #winsound.PlaySound('C:/Users/Developer/Desktop/SortingHat/stalling/wheretoputyou.wav', winsound.SND_FILENAME)
-        
+        subprocess.call(['afplay', projectRoot + '/stalling/wheretoputyou.wav'])
+
 def PlayHouse(HouseName):
     if HouseName == 'Hopper':
         print 'Welcome to House Hopper %s!' % (name)
@@ -37,18 +32,16 @@ def PlayHouse(HouseName):
         print 'Welcome to House Borg %s!' % (name)
     else:
         print 'Welcome to House Fried %s!' % (name)
-        
+
 def PlayKnow(KnowNum):
     if KnowNum == 0:
         time.sleep(0)
     elif KnowNum == 1:
-        winsound.PlaySound(projectRoot + '/know/iknow.wav', winsound.SND_FILENAME)
-        #winsound.PlaySound('C:/Users/Developer/Desktop/SortingHat/know/iknow.wav', winsound.SND_FILENAME)
+        subprocess.call(['afplay', projectRoot + '/know/iknow.wav'])
     else:
-        winsound.PlaySound(projectRoot + '/know/iknowjustwhattodo.wav', winsound.SND_FILENAME)
-        #winsound.PlaySound('C:/Users/Developer/Desktop/SortingHat/know/iknowjustwhattodo.wav', winsound.SND_FILENAME)
-        
-        
+        subprocess.call(['afplay', projectRoot + '/know/iknowjustwhattodo.wav'])
+
+
 number_of_girls = input("How many girls are in the camp? ")
 houses = ['Hopper', 'Lovelace', 'Borg', 'Fried']
 girls = []
@@ -63,10 +56,10 @@ for i in range(number_of_girls):
     random_stalls.append(stalls[i%len(stalls)])
     iknows_random.append(iknows[i%len(iknows)])
 random.shuffle(girls)
-random.shuffle(random_stalls) 
+random.shuffle(random_stalls)
 random.shuffle(iknows_random)
 
-print girls   
+print girls
 print random_stalls
 print iknows_random
 
@@ -78,7 +71,7 @@ for i in range(number_of_girls):
     PlayKnow(iknows_random[i])
     time.sleep(0.25)
     PlayHouse(girls[i])
-    time.sleep(3) 
+    time.sleep(3)
 
 from PyQt4 import QtCore, QtGui
 import sys
@@ -129,14 +122,13 @@ class Ui_Form(QtGui.QWidget):
             PlayKnow(iknows_random[i])
             time.sleep(0.25)
             PlayHouse(girls[i])
-            time.sleep(3) 
+            time.sleep(3)
 
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)
     ex = Ui_Form()
     ex.show()
     sys.exit(app.exec_())
-        
 
-    
-    
+
+
