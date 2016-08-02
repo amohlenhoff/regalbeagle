@@ -10,18 +10,26 @@ import subprocess
 import time
 import os
 
+from PyQt4 import QtCore, QtGui
+import sys
+
 projectRoot = os.path.dirname(os.path.abspath(__file__))
 def PlayStall(stallNum):
     if stallNum == 1:
-        subprocess.call(['afplay', projectRoot + '/stalling/ahright.wav'])
+        QtGui.QSound(projectRoot + '/stalling/ahright.wav').play()
+        #subprocess.call(['afplay', projectRoot + '/stalling/ahright.wav'])
     elif stallNum == 2:
-        subprocess.call(['afplay', projectRoot + '/stalling/difficult.wav'])
+        QtGui.QSound(projectRoot + '/stalling/ahright.wav').play()        
+        #subprocess.call(['afplay', projectRoot + '/stalling/difficult.wav'])
     elif stallNum == 3:
-        subprocess.call(['afplay', projectRoot + '/stalling/itsallhere.wav'])
+        QtGui.QSound(projectRoot + '/stalling/ahright.wav').play()        
+        #subprocess.call(['afplay', projectRoot + '/stalling/itsallhere.wav'])
     elif stallNum == 4:
-        subprocess.call(['afplay', projectRoot + '/stalling/rightok.wav'])
+        QtGui.QSound(projectRoot + '/stalling/ahright.wav').play()
+        #subprocess.call(['afplay', projectRoot + '/stalling/rightok.wav'])
     else:
-        subprocess.call(['afplay', projectRoot + '/stalling/wheretoputyou.wav'])
+        QtGui.QSound(projectRoot + '/stalling/ahright.wav').play()
+        #subprocess.call(['afplay', projectRoot + '/stalling/wheretoputyou.wav'])
 
 def PlayHouse(HouseName):
     if HouseName == 'Hopper':
@@ -72,9 +80,6 @@ for i in range(number_of_girls):
     time.sleep(0.25)
     PlayHouse(girls[i])
     time.sleep(3)
-
-from PyQt4 import QtCore, QtGui
-import sys
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
