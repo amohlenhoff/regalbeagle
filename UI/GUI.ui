@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>477</width>
-    <height>520</height>
+    <width>509</width>
+    <height>606</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -48,9 +48,12 @@
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/images/Hogwarts_Logo.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>Enter your name</string>
        </property>
       </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineEdit_name"/>
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -133,8 +136,6 @@
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="../../../Pictures/HarryPotter.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
